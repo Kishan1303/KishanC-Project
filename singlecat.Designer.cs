@@ -34,8 +34,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 262);
+            this.ClientSize = new System.Drawing.Size(825, 431);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "singlecat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "singlecat";
             this.Load += new System.EventHandler(this.singlecat_Load);
             this.ResumeLayout(false);
@@ -43,5 +45,6 @@
         }
 
         #endregion
+
     }
 }
