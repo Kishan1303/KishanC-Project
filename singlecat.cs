@@ -72,7 +72,8 @@ namespace Hotel_Management
             string nnm = nm.Substring(34);
             Class1.s_cat = nnm;
 
-           
+            homepage h = new homepage();
+            Class1.openChildForm(new rooms(fn, main, nnm), main);
 
         }
     }
