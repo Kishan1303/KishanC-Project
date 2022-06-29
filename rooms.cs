@@ -32,12 +32,12 @@ namespace Hotel_Management
 
         private void rooms_Load(object sender, EventArgs e)
         {
-            string a = "select Distinct rtype from rooms ";
+            string a = "select Distinct rtype from rooms "; 
             SqlDataAdapter da = new SqlDataAdapter(a, Class1.cn);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            comboBox1.DataSource = dt;
-            comboBox1.DisplayMember = "rtype";
+           // comboBox1.DataSource = dt;
+            //comboBox1.DisplayMember = "rtype";
 
 
             string sel = "Select * from rooms where catagory='" + Class1.s_cat + "' ";
@@ -47,14 +47,7 @@ namespace Hotel_Management
             totcat = dts.Rows.Count;
             for (int i = 0; i < totcat; i++)
             {
-              /*  PictureBox p = new PictureBox();
-                panel2.Controls.Add(p);
-                p.Name = "P_Item" + i.ToString();
-                p.Size = new Size(200, 150);
-                p.Location = new System.Drawing.Point(pxloc, pyloc);
-                string i_path = Path.Combine(dts.Rows[i]["image"].ToString());
-                p.Image = Image.FromFile(i_path);
-                p.SizeMode = PictureBoxSizeMode.Zoom;*/
+            
 
                 PictureBox p = new PictureBox();
                 this.Controls.Add(p);
@@ -69,7 +62,7 @@ namespace Hotel_Management
                 panel2.Controls.Add(l);
                 l.Name = dts.Rows[i]["rno"].ToString();
                 l.Size = new Size(200, 50);
-                l.Location = new System.Drawing.Point(pxloc + 40, pyloc + 180);
+                l.Location = new System.Drawing.Point(pxloc + 50, pyloc + 180);
                 l.Text = dts.Rows[i]["rno"].ToString();
                 l.Cursor = Cursors.Hand;
                 l.Click += new System.EventHandler(this.l_Click);
@@ -99,10 +92,10 @@ namespace Hotel_Management
                 PictureBox p = new PictureBox();
                 panel2.Controls.Add(p);
                 p.Name = "P_Item" + i.ToString();
-                p.Size = new Size(200, 150);
+                p.Size = new Size(200, 130);
                 p.Location = new System.Drawing.Point(lxloc, lyloc);
                 string i_path = Path.Combine(dt.Rows[i]["image"].ToString());
-                p.Image = Image.FromFile(i_path);
+              p.Image = Image.FromFile(i_path);
                 p.SizeMode = PictureBoxSizeMode.Zoom;
 
 
@@ -136,5 +129,8 @@ namespace Hotel_Management
             Class1.openChildForm(new rooms(fn, main, nnm), main);
 
         }
+
+    
+      
     }
 }
