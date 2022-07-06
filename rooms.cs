@@ -16,7 +16,7 @@ namespace Hotel_Management
     {
         public static Panel main;
         public static homepage fn;
-        public static string a;
+        public static string a,k;
 
 
         int totcat, oid;
@@ -32,15 +32,7 @@ namespace Hotel_Management
 
         private void rooms_Load(object sender, EventArgs e)
         {
-            string a = "select Distinct rtype from rooms "; 
-            SqlDataAdapter da = new SqlDataAdapter(a, Class1.cn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-           // comboBox1.DataSource = dt;
-            //comboBox1.DisplayMember = "rtype";
-
-
-            string sel = "Select * from rooms where catagory='" + Class1.s_cat + "' ";
+            string sel = "Select * from rooms where catagory='" + Class1.s_cat + "' and status='Available' ";
             SqlDataAdapter adapter = new SqlDataAdapter(sel, Class1.cn);
             DataTable dts = new DataTable();
             adapter.Fill(dts);
@@ -82,8 +74,17 @@ namespace Hotel_Management
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             panel2.Controls.Clear();
-            string a = "select * from rooms where status='Available' and rtype='" + comboBox1.Text + "' and catagory='" + Class1.s_cat + "' ";
-            SqlDataAdapter das = new SqlDataAdapter(a, Class1.cn);
+
+            if (comboBox1.Text == "All")
+            {
+                k = "Select * from rooms where  catagory='" + Class1.s_cat + "'and status='Available' ";
+
+            }
+            else
+            {
+                k = "select * from rooms where status='Available' and rtype='" + comboBox1.Text + "' and catagory='" + Class1.s_cat + "' ";
+            }
+            SqlDataAdapter das = new SqlDataAdapter(k, Class1.cn);
             DataTable dt = new DataTable();
             das.Fill(dt);
             totcat = dt.Rows.Count;
@@ -127,6 +128,11 @@ namespace Hotel_Management
 
             homepage h = new homepage();
             Class1.openChildForm(new rooms(fn, main, nnm), main);
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
 
