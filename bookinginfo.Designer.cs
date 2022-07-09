@@ -242,7 +242,7 @@
             this.tad.Name = "tad";
             this.tad.Size = new System.Drawing.Size(200, 15);
             this.tad.TabIndex = 10;
-            this.tad.TextChanged += new System.EventHandler(this.tad_TextChanged_1);
+            this.tad.TextChanged += new System.EventHandler(this.tad_TextChanged);
             // 
             // label13
             // 
@@ -341,7 +341,6 @@
             this.tgst.Name = "tgst";
             this.tgst.Size = new System.Drawing.Size(216, 15);
             this.tgst.TabIndex = 40;
-            this.tgst.TextChanged += new System.EventHandler(this.tgst_TextChanged);
             // 
             // label14
             // 
