@@ -17,7 +17,7 @@ namespace Hotel_Management
         public homepage()
         {
             InitializeComponent();
-           
+
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -33,7 +33,7 @@ namespace Hotel_Management
         private void label1_Click(object sender, EventArgs e)
         {
             // DC.openChildForm(new FormName(arguments),main)
-            Class1.openChildForm(new singlecat(this,p_fm,"0"),p_fm);
+            Class1.openChildForm(new singlecat(this, p_fm, "0"), p_fm);
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
