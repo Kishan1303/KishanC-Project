@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data.Sql;
 
 namespace Hotel_Management
 {
@@ -26,7 +26,6 @@ namespace Hotel_Management
             a = s;
 
         }
-
         private void clear()
         {
             tname.Text = "";
@@ -42,6 +41,17 @@ namespace Hotel_Management
             ttp.Text = "";
             tdate.Text = "";
         }
+        private void bookingpage_Load(object sender, EventArgs e)
+        {
+            tcat.Text = Class1.s_cat;
+            trn.Text = a;
+            string sel = "select amount from rooms where category='" + tcat.Text + "' and rno='" + trn.Text + "'";
+            SqlDataAdapter das = new SqlDataAdapter(sel, Class1.cn);
+            DataTable dt1 = new DataTable();
+            das.Fill(dt1);
+            tta.Text = dt1.Rows[0]["amount"].ToString();
+            oram = Convert.ToInt32(tta.Text);
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -49,25 +59,13 @@ namespace Hotel_Management
             SqlDataAdapter adapter = new SqlDataAdapter(ins, Class1.cn);
             DataTable dt1 = new DataTable();
             adapter.Fill(dt1);
-          
 
-            string up = "update rooms set doa='" + dateTimePicker1.Value.ToShortDateString() +"' , doc='" +dateTimePicker2.Value.ToShortDateString() + "', status ='Unavailable' where rno='" + trn.Text + "' ";
+
+            string up = "update rooms set doa='" + dateTimePicker1.Value.ToShortDateString() + "' , doc='" + dateTimePicker2.Value.ToShortDateString() + "', status ='Unavailable' where rno='" + trn.Text + "' ";
             SqlDataAdapter dau = new SqlDataAdapter(up, Class1.cn);
             DataTable dataTable = new DataTable();
             dau.Fill(dataTable);
             clear();
-        }
-
-        private void bookinginfo_Load(object sender, EventArgs e)
-        {
-            tcat.Text = Class1.s_cat;
-            trn.Text = a;
-            string sel = "select amount from rooms where catagory='" + tcat.Text + "' and rno='" + trn.Text + "'";
-            SqlDataAdapter das = new SqlDataAdapter(sel, Class1.cn);
-            DataTable dt1 = new DataTable();
-            das.Fill(dt1);
-            tta.Text = dt1.Rows[0]["amount"].ToString();
-            oram = Convert.ToInt32(tta.Text);
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -78,12 +76,6 @@ namespace Hotel_Management
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void tad12(Object sender, EventArgs e)
-        {
-
-        }
-
-      
         private void tdate_TextChanged(object sender, EventArgs e)
         {
             tgst.Text = "0";

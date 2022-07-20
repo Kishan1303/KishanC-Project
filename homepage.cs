@@ -51,5 +51,20 @@ namespace Hotel_Management
 
 
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            Class1.openChildForm(new checkout(this, p_fm, "0"), p_fm);
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Class1.openChildForm(new income(), p_fm);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Class1.openChildForm(new staffmanagement(this, p_fm, "0"), p_fm);
+        }
     }
 }

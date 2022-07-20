@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+          #region Windows Form Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_rm = new System.Windows.Forms.Button();
             this.btn_up = new System.Windows.Forms.Button();
@@ -54,6 +54,8 @@
             this.staffdgv = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tpwd = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffdgv)).BeginInit();
@@ -63,7 +65,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(40)))), ((int)(((byte)(91)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 230);
+            this.panel2.Location = new System.Drawing.Point(0, 212);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(825, 11);
@@ -71,7 +73,7 @@
             // 
             // btn_rm
             // 
-            this.btn_rm.Location = new System.Drawing.Point(668, 329);
+            this.btn_rm.Location = new System.Drawing.Point(231, 397);
             this.btn_rm.Margin = new System.Windows.Forms.Padding(2);
             this.btn_rm.Name = "btn_rm";
             this.btn_rm.Size = new System.Drawing.Size(130, 28);
@@ -82,7 +84,7 @@
             // 
             // btn_up
             // 
-            this.btn_up.Location = new System.Drawing.Point(668, 297);
+            this.btn_up.Location = new System.Drawing.Point(376, 396);
             this.btn_up.Margin = new System.Windows.Forms.Padding(2);
             this.btn_up.Name = "btn_up";
             this.btn_up.Size = new System.Drawing.Size(130, 28);
@@ -94,7 +96,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(251, 327);
+            this.label8.Location = new System.Drawing.Point(304, 296);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 13);
@@ -103,7 +105,7 @@
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(668, 264);
+            this.btn_add.Location = new System.Drawing.Point(63, 397);
             this.btn_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(130, 28);
@@ -116,7 +118,7 @@
             // 
             this.groupBox1.Controls.Add(this.ch_f);
             this.groupBox1.Controls.Add(this.ch_m);
-            this.groupBox1.Location = new System.Drawing.Point(95, 325);
+            this.groupBox1.Location = new System.Drawing.Point(145, 291);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -150,18 +152,18 @@
             // 
             // btn_upld
             // 
-            this.btn_upld.Location = new System.Drawing.Point(542, 392);
+            this.btn_upld.Location = new System.Drawing.Point(583, 381);
             this.btn_upld.Margin = new System.Windows.Forms.Padding(2);
             this.btn_upld.Name = "btn_upld";
             this.btn_upld.Size = new System.Drawing.Size(108, 28);
             this.btn_upld.TabIndex = 55;
             this.btn_upld.Text = "Upload";
             this.btn_upld.UseVisualStyleBackColor = true;
-            this.btn_upld.Click += new System.EventHandler(this.btn_upld_Click_1);
+            this.btn_upld.Click += new System.EventHandler(this.btn_upld_Click);
             // 
             // dtp
             // 
-            this.dtp.Location = new System.Drawing.Point(339, 324);
+            this.dtp.Location = new System.Drawing.Point(391, 293);
             this.dtp.Margin = new System.Windows.Forms.Padding(2);
             this.dtp.Name = "dtp";
             this.dtp.Size = new System.Drawing.Size(148, 20);
@@ -169,8 +171,7 @@
             // 
             // txtsal
             // 
-            this.txtsal.Enabled = false;
-            this.txtsal.Location = new System.Drawing.Point(339, 296);
+            this.txtsal.Location = new System.Drawing.Point(391, 265);
             this.txtsal.Margin = new System.Windows.Forms.Padding(2);
             this.txtsal.Name = "txtsal";
             this.txtsal.Size = new System.Drawing.Size(148, 20);
@@ -178,8 +179,7 @@
             // 
             // txteid
             // 
-            this.txteid.Enabled = false;
-            this.txteid.Location = new System.Drawing.Point(337, 269);
+            this.txteid.Location = new System.Drawing.Point(390, 237);
             this.txteid.Margin = new System.Windows.Forms.Padding(2);
             this.txteid.Name = "txteid";
             this.txteid.Size = new System.Drawing.Size(150, 20);
@@ -187,8 +187,7 @@
             // 
             // txtage
             // 
-            this.txtage.Enabled = false;
-            this.txtage.Location = new System.Drawing.Point(91, 359);
+            this.txtage.Location = new System.Drawing.Point(142, 325);
             this.txtage.Margin = new System.Windows.Forms.Padding(2);
             this.txtage.Name = "txtage";
             this.txtage.Size = new System.Drawing.Size(150, 20);
@@ -196,8 +195,7 @@
             // 
             // txtnum
             // 
-            this.txtnum.Enabled = false;
-            this.txtnum.Location = new System.Drawing.Point(94, 297);
+            this.txtnum.Location = new System.Drawing.Point(144, 262);
             this.txtnum.Margin = new System.Windows.Forms.Padding(2);
             this.txtnum.Name = "txtnum";
             this.txtnum.Size = new System.Drawing.Size(150, 20);
@@ -205,8 +203,7 @@
             // 
             // txtnm
             // 
-            this.txtnm.Enabled = false;
-            this.txtnm.Location = new System.Drawing.Point(94, 269);
+            this.txtnm.Location = new System.Drawing.Point(144, 235);
             this.txtnm.Margin = new System.Windows.Forms.Padding(2);
             this.txtnm.Name = "txtnm";
             this.txtnm.Size = new System.Drawing.Size(150, 20);
@@ -214,19 +211,18 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(529, 253);
+            this.pictureBox1.Location = new System.Drawing.Point(572, 237);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(126, 129);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 48;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 334);
+            this.label7.Location = new System.Drawing.Point(57, 300);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 13);
@@ -236,7 +232,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(253, 299);
+            this.label6.Location = new System.Drawing.Point(305, 267);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
@@ -246,7 +242,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(253, 271);
+            this.label5.Location = new System.Drawing.Point(305, 240);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
@@ -256,7 +252,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 362);
+            this.label4.Location = new System.Drawing.Point(56, 327);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
@@ -266,7 +262,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 299);
+            this.label3.Location = new System.Drawing.Point(59, 265);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
@@ -276,7 +272,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 271);
+            this.label2.Location = new System.Drawing.Point(59, 237);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
@@ -288,15 +284,15 @@
             this.staffdgv.AllowUserToAddRows = false;
             this.staffdgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.staffdgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.staffdgv.BackgroundColor = System.Drawing.Color.Lavender;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(40)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(91)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.staffdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.staffdgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(230)))), ((int)(((byte)(185)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(40)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(91)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.staffdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.staffdgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.staffdgv.Dock = System.Windows.Forms.DockStyle.Top;
             this.staffdgv.Location = new System.Drawing.Point(0, 0);
@@ -305,15 +301,14 @@
             this.staffdgv.ReadOnly = true;
             this.staffdgv.RowHeadersVisible = false;
             this.staffdgv.RowHeadersWidth = 51;
-            this.staffdgv.Size = new System.Drawing.Size(825, 230);
+            this.staffdgv.Size = new System.Drawing.Size(825, 212);
             this.staffdgv.TabIndex = 41;
             this.staffdgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.staffdgv_CellClick);
-            this.staffdgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.staffdgv_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(251, 362);
+            this.label1.Location = new System.Drawing.Point(56, 362);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 13);
@@ -327,18 +322,40 @@
             "Maintenance & Cleaning",
             "RoomService",
             "Receptionist"});
-            this.comboBox1.Location = new System.Drawing.Point(339, 359);
+            this.comboBox1.Location = new System.Drawing.Point(143, 358);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(148, 21);
             this.comboBox1.TabIndex = 63;
-            //this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // tpwd
+            // 
+            this.tpwd.Enabled = false;
+            this.tpwd.Location = new System.Drawing.Point(390, 324);
+            this.tpwd.Margin = new System.Windows.Forms.Padding(2);
+            this.tpwd.Name = "tpwd";
+            this.tpwd.Size = new System.Drawing.Size(148, 20);
+            this.tpwd.TabIndex = 65;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(304, 327);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 13);
+            this.label9.TabIndex = 64;
+            this.label9.Text = "Password    :";
             // 
             // staffmanagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(230)))), ((int)(((byte)(185)))));
             this.ClientSize = new System.Drawing.Size(825, 431);
+            this.Controls.Add(this.tpwd);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
@@ -367,7 +384,7 @@
             this.Name = "staffmanagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "staffmanagement";
-            this.Load += new System.EventHandler(this.staffmanagement_Load_1);
+            this.Load += new System.EventHandler(this.staffmanagement_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -404,5 +421,8 @@
         private System.Windows.Forms.DataGridView staffdgv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox tpwd;
+        private System.Windows.Forms.Label label9;
+    
     }
 }

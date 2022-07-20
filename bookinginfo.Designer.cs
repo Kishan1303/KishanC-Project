@@ -393,7 +393,7 @@
             this.Name = "bookinginfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.bookinginfo_Load);
+            this.Load += new System.EventHandler(this.bookingpage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,6 +431,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tgst;
         private System.Windows.Forms.Label label14;
-
     }
 }

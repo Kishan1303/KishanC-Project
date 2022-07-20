@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.IO;
-
 namespace Hotel_Management
 {
     public partial class singlecat : Form
@@ -27,7 +26,7 @@ namespace Hotel_Management
             a = s;
 
         }
-
+        
         private void singlecat_Load(object sender, EventArgs e)
         {
             string sel = "Select * from catagory ";

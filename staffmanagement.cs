@@ -6,24 +6,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
-using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Data.Sql;
+using System.IO;
 
 namespace Hotel_Management
 {
+
     public partial class staffmanagement : Form
     {
-        public staffmanagement()
-        {
-            InitializeComponent();
-        }
-
         public static Panel main;
         public static homepage fn;
         int sid, i = 0;
         string gen, a;
         string date;
+        public static string pwd;
         DataTable dts = new DataTable();
         public staffmanagement(homepage f, Panel p, string s)
         {
@@ -33,11 +30,31 @@ namespace Hotel_Management
             a = s;
 
         }
+        private void load()
+        {
 
-       
-
+            txtnm.Enabled = false;
+            txtnum.Enabled = false;
+            txteid.Enabled = false;
+            txtage.Enabled = false;
+            txtsal.Enabled = false;
+            gridloader();
+        }
+        private void staffmanagement_Load(object sender, EventArgs e)
+        {
+            load();
+        }
+        public void gridloader()
+        {
+            dts.Clear();
+            string sel = "select id , name ,number,gender,age,designation,email,salary,jod ,img,password from staff";
+            SqlDataAdapter das = new SqlDataAdapter(sel, Class1.cn);
+            das.Fill(dts);
+            staffdgv.DataSource = dts;
+        }
         private void btn_add_Click(object sender, EventArgs e)
         {
+
             if (i == 0)
             {
                 tb_enable();
@@ -63,19 +80,29 @@ namespace Hotel_Management
                         date = dtp.ToString().Substring(44, 8);
                         if (ch_m.Checked == true)
                         {
-                            string ins = "insert into staff(name,email,number,age,designation,img,gender,jod,salary)values('" + txtnm.Text + "','" + txteid.Text + "','" + txtnum.Text + "','" + txtage.Text + "','" + comboBox1.Text + "','" + path + "','" + "male" + "','" + date + "','" + txtsal.Text + "')";
+                            string ins = "insert into staff(name,email,number,age,designation,img,gender,jod,salary,password)values('" + txtnm.Text + "','" + txteid.Text + "','" + txtnum.Text + "','" + txtage.Text + "','" + comboBox1.Text + "','" + path + "','" + "male" + "','" + date + "','" + txtsal.Text + "','" + tpwd.Text + "')";
                             SqlDataAdapter dai = new SqlDataAdapter(ins, Class1.cn);
                             DataTable dti = new DataTable();
                             dai.Fill(dti);
+                            if (comboBox1.Text == "Receptionist")
+                            {
+                                EnterLoginData();
+                            }
                         }
                         else if (ch_f.Checked == true)
                         {
-                            string ins = "insert into staff(name,email,number,age,designation,img,gender,jod,salary)values('" + txtnm.Text + "','" + txteid.Text + "','" + txtnum.Text + "','" + txtage.Text + "','" + comboBox1.Text + "','" + path + "','" + "female" + "','" + date + "','" + txtsal.Text + "')";
+                            string ins = "insert into staff(name,email,number,age,designation,img,gender,jod,salary,password)values('" + txtnm.Text + "','" + txteid.Text + "','" + txtnum.Text + "','" + txtage.Text + "','" + comboBox1.Text + "','" + path + "','" + "female" + "','" + date + "','" + txtsal.Text + "','" + tpwd.Text + "')";
                             SqlDataAdapter dai = new SqlDataAdapter(ins, Class1.cn);
                             DataTable dti = new DataTable();
                             dai.Fill(dti);
+                            if (comboBox1.Text == "Receptionist")
+                            {
+                                EnterLoginData();
+                            }
                         }
+
                         img.Save(path);
+                        MessageBox.Show("Data Added !!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         gridloader();
                     }
                     else
@@ -92,37 +119,8 @@ namespace Hotel_Management
                 txtnm.Focus();
                 tb_disable();
                 i = 0;
-            }
-        }
-        public void gridloader()
-        {
-            dts.Clear();
-            string sel = "select id , name ,number,gender,age,designation,email,salary,jod ,img from staff";
-            SqlDataAdapter das = new SqlDataAdapter(sel, Class1.cn);
-            das.Fill(dts);
-            staffdgv.DataSource = dts;
-        }
 
-        private void staffdgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewRow row = staffdgv.Rows[e.RowIndex];
-            txtnm.Text = row.Cells[1].Value.ToString();
-            txtnum.Text = row.Cells[2].Value.ToString();
-            string gen = row.Cells[3].Value.ToString();
-            if (gen == "male")
-            {
-                ch_m.Checked = true;
             }
-            else
-            {
-                ch_f.Checked = true;
-            }
-            txtage.Text = row.Cells[4].Value.ToString();
-            txteid.Text = row.Cells[5].Value.ToString();
-            txtsal.Text = row.Cells[6].Value.ToString();
-            sid = Convert.ToInt32(row.Cells[0].Value.ToString());
-            pictureBox1.ImageLocation = row.Cells[8].Value.ToString();
-            pictureBox1.Load();
         }
 
         private void btn_up_Click(object sender, EventArgs e)
@@ -145,16 +143,72 @@ namespace Hotel_Management
                 {
                     gen = "female";
                 }
-                string up = "update staff set name = '" + txtnm.Text + "',number ='" + txtnum.Text + "',gender = '" + gen + "',age='" + txtage.Text + "', designation = '" + comboBox1.Text + "' ,email='" + txteid.Text + "',salary='" + txtsal.Text + "',jod='" + date + "'  where id='" + sid + "'";
-                SqlDataAdapter dau = new SqlDataAdapter(up, Class1.cn);
-                DataTable dtu = new DataTable();
-                dau.Fill(dtu);
+                if (comboBox1.Text == "Receptionist")
+                {
+                    pwd = tpwd.Text;
+                }
+                else
+                {
+                    pwd = null;
+                }
+                //string up = "update staff set name = '" + txtnm.Text + "',number ='" + txtnum.Text + "',gender = '" + gen + "',age='" + txtage.Text + "', designation = '" + comboBox1.Text + "' ,email='" + txteid.Text + "',salary='" + txtsal.Text + "',jod='" + date + "' , password = '" + pwd + "' where id='" + sid + "' ";
+                //  SqlDataAdapter dau = new SqlDataAdapter(up, Class1.cn);
+                ///  DataTable dtu = new DataTable();
+                //   dau.Fill(dtu);
                 btn_up.Text = "Update";
                 tb_disable();
                 i = 0;
                 btn_upld.Enabled = true;
                 clear();
                 gridloader();
+            }
+
+        }
+
+        private void btn_rm_Click(object sender, EventArgs e)
+        {
+            var msg = MessageBox.Show("Do you want to remove '" + txtnm.Text + "' \n This action won't be undone");
+            if (msg == DialogResult.OK)
+            {
+                string del = "delete from staff where id = '" + sid + "'";
+                SqlDataAdapter dad = new SqlDataAdapter(del, Class1.cn);
+                DataTable dtd = new DataTable();
+                dad.Fill(dtd);
+                clear();
+                gridloader();
+            }
+            else
+            {
+                clear();
+            }
+        }
+        public void clear()
+        {
+            txtnm.Text = "";
+            txtnum.Text = "";
+            ch_f.Checked = false;
+            ch_m.Checked = false;
+            txtage.Text = "";
+            txteid.Text = "";
+            txtsal.Text = "";
+            
+            comboBox1.Text = "";
+            tpwd.Text = "";
+            
+            pictureBox1.Dispose();
+        }
+
+        private void btn_upld_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            PictureBox p = pictureBox1;
+            if (p != null)
+            {
+                op.Filter = "(.jpg;.jpeg;.png) | *.jpg;.jpeg;*.png ";
+                if (op.ShowDialog() == DialogResult.OK)
+                {
+                    p.Image = Image.FromFile(op.FileName);
+                }
             }
         }
 
@@ -175,43 +229,28 @@ namespace Hotel_Management
             txtage.Text = row.Cells[4].Value.ToString();
             txteid.Text = row.Cells[6].Value.ToString();
             txtsal.Text = row.Cells[7].Value.ToString();
+            tpwd.Text = row.Cells[10].Value.ToString();
             sid = Convert.ToInt32(row.Cells[0].Value.ToString());
-            var com= row.Cells[5].Value.ToString();
-            comboBox1.Items.Add(com);
+            var sn = row.Cells[5].Value.ToString();
+            var in1 = comboBox1.Items.IndexOf(sn.ToString());
+            comboBox1.SelectedIndex = in1;
+
+            dtp.Text = row.Cells[8].Value.ToString();
             pictureBox1.ImageLocation = row.Cells[9].Value.ToString();
             pictureBox1.Load();
         }
 
-        private void btn_rm_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var msg = MessageBox.Show("Do you want to remove '" + txtnm.Text + "' \n This action won't be undone");
-            if (msg == DialogResult.OK)
+            if (comboBox1.Text == "Receptionist")
             {
-                string del = "delete from staff where id = '" + sid + "'";
-                SqlDataAdapter dad = new SqlDataAdapter(del, Class1.cn);
-                DataTable dtd = new DataTable();
-                dad.Fill(dtd);
-                gridloader();
+                tpwd.Enabled = true;
             }
             else
             {
-                clear();
+                tpwd.Enabled = false;
             }
         }
-        public void clear()
-        {
-            txtnm.Text = "";
-            txtnum.Text = "";
-            ch_f.Checked = false;
-            ch_m.Checked = false;
-            txtage.Text = "";
-            txteid.Text = "";
-            txtsal.Text = "";
-            comboBox1.Text = "";
-            pictureBox1.Image.Dispose();
-        }
-
-       
         public void tb_enable()
         {
             txtnm.Enabled = true;
@@ -220,6 +259,7 @@ namespace Hotel_Management
             txteid.Enabled = true;
             txtsal.Enabled = true;
             dtp.Enabled = true;
+            tpwd.Enabled = true;
         }
         public void tb_disable()
         {
@@ -229,32 +269,14 @@ namespace Hotel_Management
             txteid.Enabled = false;
             txtsal.Enabled = false;
             dtp.Enabled = false;
+            tpwd.Enabled = false;
         }
-
-        private void btn_upld_Click_1(object sender, EventArgs e)
+        protected void EnterLoginData()
         {
-            OpenFileDialog op = new OpenFileDialog();
-            PictureBox p = pictureBox1;
-            if (p != null)
-            {
-                op.Filter = "(.jpg;.jpeg;.png) | *.jpg;.jpeg;*.png ";
-                if (op.ShowDialog() == DialogResult.OK)
-                {
-                    p.Image = Image.FromFile(op.FileName);
-                }
-            }
+            string ins2 = "insert into login(name,email,password) values('" + txtnm.Text + "','" + txteid.Text + "','" + tpwd.Text + "')";
+            SqlDataAdapter dai = new SqlDataAdapter(ins2, Class1.cn);
+            DataTable dti = new DataTable();
+            dai.Fill(dti);
         }
-
-        private void staffmanagement_Load_1(object sender, EventArgs e)
-        {
-            txtnm.Enabled = false;
-            txtnum.Enabled = false;
-            txteid.Enabled = false;
-            txtage.Enabled = false;
-            txtsal.Enabled = false;
-            gridloader();
-        }
-
-        
     }
 }

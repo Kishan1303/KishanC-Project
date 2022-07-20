@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data;
-using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Data.Sql;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Data.Sql;
 
 namespace Hotel_Management
 {
     class Class1
     {
-        public static SqlConnection cn = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\hotelmanagment.mdf;Integrated Security=True;User Instance=True");
+        public static SqlConnection cn = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|hotelmgt.mdf;Integrated Security=True;User Instance=True");
         public static Form activeForm = null;
         public static string s_cat;
         public static void openChildForm(Form childForm, Panel p)
