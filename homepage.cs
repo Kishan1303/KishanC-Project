@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace Hotel_Management
 {
@@ -22,12 +24,14 @@ namespace Hotel_Management
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
-
+           
         }
 
         private void homepage_Load(object sender, EventArgs e)
         {
-
+           
+           
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -59,12 +63,23 @@ namespace Hotel_Management
 
         private void label4_Click(object sender, EventArgs e)
         {
+         
             Class1.openChildForm(new income(), p_fm);
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
             Class1.openChildForm(new staffmanagement(this, p_fm, "0"), p_fm);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

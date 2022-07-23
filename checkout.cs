@@ -66,6 +66,7 @@ namespace Hotel_Management
             SqlDataAdapter das = new SqlDataAdapter(ins, Class1.cn);
             DataTable dts = new DataTable();
             das.Fill(dts);
+            MessageBox.Show("Checkout Complete ...", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             string up = "update rooms set status='Available', doa='' , doc='' where rno='" + comboBox1.Text + "'";
                 SqlDataAdapter dup = new SqlDataAdapter(up, Class1.cn);

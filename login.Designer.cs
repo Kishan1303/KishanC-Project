@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.butlogin = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -54,7 +55,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(240, 164);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(115, 23);
@@ -76,7 +77,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(240, 125);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(115, 23);
             this.textBox1.TabIndex = 20;
@@ -100,7 +101,7 @@
             this.butlogin.ForeColor = System.Drawing.Color.White;
             this.butlogin.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.butlogin.Location = new System.Drawing.Point(177, 219);
-            this.butlogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.butlogin.Margin = new System.Windows.Forms.Padding(2);
             this.butlogin.Name = "butlogin";
             this.butlogin.Size = new System.Drawing.Size(178, 37);
             this.butlogin.TabIndex = 24;
@@ -112,12 +113,25 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(532, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(21, 20);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "X";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(230)))), ((int)(((byte)(185)))));
             this.ClientSize = new System.Drawing.Size(563, 338);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -125,10 +139,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.butlogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login ";
+            this.Load += new System.EventHandler(this.login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,6 +158,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button butlogin;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label4;
     
     }
 }

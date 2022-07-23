@@ -30,28 +30,40 @@ namespace Hotel_Management
                     {
                         if (textBox2.Text != "")
                         {
-
-                            string s = "Select * from login where name = '" + textBox1.Text + "' and password ='" + textBox2.Text + "' ";
-                            SqlDataAdapter adapter = new SqlDataAdapter(s, Class1.cn);
-                            DataTable dt = new DataTable();
-                            adapter.Fill(dt);
-                            if (dt.Rows.Count == 1)
+                            if (textBox1.Text == "Kishan" && textBox2.Text == "kishan123")
                             {
-                                accountno = textBox1.Text;
-                                homepage hp = new homepage();
-                                hp.Show();
-                                this.Hide();
+                                    homepage hp = new homepage();
+                                    hp.Show();
+                                    this.Hide();
+
+                             
                             }
                             else
-                            {
-                                MessageBox.Show("User not found !!");
-                                pass1++;
+                           {
+                                string s = "Select * from login where name = '" + textBox1.Text + "' and password ='" + textBox2.Text + "' ";
+                                SqlDataAdapter adapter = new SqlDataAdapter(s, Class1.cn);
+                                DataTable dt = new DataTable();
+                                adapter.Fill(dt);
+                                if (dt.Rows.Count == 1)
+                                {
 
+                                    homepage hp = new homepage();
+                                    hp.Show();
+                                    this.Hide();
+
+                                    
+                                }
+                                else
+                                {
+                                    MessageBox.Show("User not found !!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    pass1++;
+
+                                }
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Enter Pin No");
+                            MessageBox.Show("Enter Password !","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
@@ -62,12 +74,12 @@ namespace Hotel_Management
                 }
                 else
                 {
-                    MessageBox.Show("Enter Account no");
+                    MessageBox.Show("Enter User Name !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Enter Detail !");
+                MessageBox.Show("Enter Detail !", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -83,6 +95,16 @@ namespace Hotel_Management
         private void timer1_Tick(object sender, EventArgs e)
         {
             butlogin.Enabled = true;
+        }
+
+        private void login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

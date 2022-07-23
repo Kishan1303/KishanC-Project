@@ -59,6 +59,7 @@ namespace Hotel_Management
             SqlDataAdapter adapter = new SqlDataAdapter(ins, Class1.cn);
             DataTable dt1 = new DataTable();
             adapter.Fill(dt1);
+            MessageBox.Show("Room Booked.....","Done",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
 
             string up = "update rooms set doa='" + dateTimePicker1.Value.ToShortDateString() + "' , doc='" + dateTimePicker2.Value.ToShortDateString() + "', status ='Unavailable' where rno='" + trn.Text + "' ";

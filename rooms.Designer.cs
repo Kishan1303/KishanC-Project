@@ -36,13 +36,13 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackColor = System.Drawing.Color.SandyBrown;
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(825, 81);
+            this.panel1.Size = new System.Drawing.Size(825, 49);
             this.panel1.TabIndex = 0;
             // 
             // comboBox1
@@ -52,7 +52,7 @@
             "All",
             "non-ac",
             "ac"});
-            this.comboBox1.Location = new System.Drawing.Point(679, 56);
+            this.comboBox1.Location = new System.Drawing.Point(695, 21);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(119, 21);
@@ -62,11 +62,12 @@
             // panel2
             // 
             this.panel2.AutoScroll = true;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(230)))), ((int)(((byte)(185)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 81);
+            this.panel2.Location = new System.Drawing.Point(0, 49);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(825, 350);
+            this.panel2.Size = new System.Drawing.Size(825, 382);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
